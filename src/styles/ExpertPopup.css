@@ -1,0 +1,159 @@
+/* --- THEME COLORS --- */
+:root {
+  --safe-cyan: #00f2fe;
+  --safe-purple: #7a5fff;
+}
+
+/* 1. OVERLAY */
+.safe-modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(2, 6, 23, 0.94);
+  backdrop-filter: blur(10px);
+  z-index: 100000 !important;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  overflow-y: auto;        
+  padding: 40px 20px;      
+}
+
+/* 2. CONTAINER - Reduced width and better scaling */
+.safe-modal-container {
+  background: #ffffff;
+  width: 100%;
+  max-width: 880px; /* REDUCED from 1050px */
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  margin-top: 0;
+  animation: modalSlideIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes modalSlideIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 3. CLOSE BUTTON */
+.safe-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #94a3b8;
+  cursor: pointer;
+  z-index: 110;
+  line-height: 1;
+}
+
+/* 4. GRID LAYOUT - Reduced min-height */
+.safe-modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  min-height: 550px; /* REDUCED from 650px */
+}
+
+/* 5. LEFT PANEL - BRANDING (Tightened Padding) */
+.safe-modal-left {
+  background: linear-gradient(160deg, #020024, #090979, #020024);
+  color: #ffffff;
+  padding: 35px; /* REDUCED from 45px */
+  display: flex;
+  flex-direction: column;
+}
+
+.safe-modal-left h3 { font-size: 22px; margin-bottom: 8px; font-weight: 800; color: var(--safe-cyan); }
+.safe-modal-left p { font-size: 13px; opacity: 0.8; line-height: 1.5; }
+
+.safe-modal-review {
+  margin: 25px 0; /* REDUCED margin */
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid var(--safe-cyan);
+  font-size: 12px;
+  font-style: italic;
+  border-radius: 4px;
+}
+
+.safe-modal-socials { display: flex; gap: 15px; font-size: 18px; margin-bottom: 20px; }
+.safe-modal-contact { margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+.safe-modal-contact span { display: block; font-size: 12px; margin-bottom: 8px; opacity: 0.8; }
+
+/* 6. RIGHT PANEL - FORM (Tightened Padding) */
+.safe-modal-right { padding: 40px; background: #ffffff; color: #111; } /* REDUCED from 50px */
+.safe-modal-right h2 { font-size: 24px; font-weight: 900; margin-bottom: 8px; letter-spacing: -0.5px; }
+.safe-modal-subtext { font-size: 13px; color: #64748b; margin-bottom: 25px; }
+
+/* 7. FORM FIELDS */
+.safe-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+
+.safe-modal-form input, 
+.safe-modal-form select, 
+.safe-modal-form textarea {
+  width: 100%;
+  padding: 12px 14px; /* Slightly tighter padding */
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  border-radius: 10px;
+  font-size: 13px;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+  transition: 0.3s;
+}
+
+.safe-modal-form input:focus, .safe-modal-form textarea:focus {
+  outline: none; border-color: var(--safe-purple); background: #fff;
+  box-shadow: 0 0 0 3px rgba(122, 95, 255, 0.1);
+}
+
+.safe-budget-label { font-size: 12px; font-weight: 700; color: #333; display: block; margin-bottom: 8px; }
+.safe-budget-label span { color: var(--safe-purple); font-size: 15px; font-weight: 800; }
+
+.safe-range-slider {
+  appearance: none;
+-webkit-appearance: none;
+  width: 100%; height: 6px; border-radius: 10px; outline: none; cursor: pointer;
+}
+
+.safe-range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px; height: 20px; background: #111; border-radius: 50%; border: 3px solid #fff;
+}
+
+.safe-modal-form textarea { min-height: 80px; resize: none; }
+
+/* 8. BUTTONS */
+.safe-modal-actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 20px; }
+
+.btn-submit {
+  background: linear-gradient(90deg, var(--safe-purple), #3730a3);
+  color: #fff; border: none; padding: 12px 30px; border-radius: 100px;
+  font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; font-size: 13px;
+}
+
+.btn-cancel { background: #fff; border: 1px solid #ddd; padding: 12px 30px; border-radius: 100px; font-weight: 700; color: #666; cursor: pointer; font-size: 13px; }
+
+/* 9. ALERTS */
+.safe-alert { padding: 12px; border-radius: 8px; font-size: 12px; font-weight: 600; margin-bottom: 15px; }
+.success { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+.error { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+
+/* 10. MOBILE & TABLET FIXES */
+@media (max-width: 900px) {
+  .safe-modal-grid { grid-template-columns: 1fr; }
+  .safe-modal-left { display: none; }
+  .safe-modal-right { padding: 30px 20px; }
+}
+
+@media (max-width: 600px) {
+  .safe-form-grid { grid-template-columns: 1fr; }
+  .safe-modal-actions { flex-direction: column; }
+  .btn-submit, .btn-cancel { width: 100%; }
+}
+
